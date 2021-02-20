@@ -1,0 +1,141 @@
+.task-container{
+    width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+    border-left: 1px solid rgb(202, 202, 202);
+    border-right: 1px solid rgb(202, 202, 202) ;
+    border-bottom: 1px solid rgb(202, 202, 202); 
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 3px 3px 13px 0px rgb(80, 80, 80);
+    position: relative;
+    background: #fccf74a9
+}
+
+.task-container .task-name{
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    padding: 10px 0;
+    width: 100%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    background-color: #28364a;
+    color: rgb(216, 216, 216);
+}
+
+.task-container .task-desc{
+    margin: 1em 1em;
+    padding: 0 1.5em;
+    text-align: left;
+    line-height: 1.6;
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.89);
+}
+
+.task-container .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 2.5em;
+    padding-top: 0;
+}
+
+@media(max-width: 400px){
+    .task-container .buttons{
+        padding: 10px 2em;
+    }
+}
+
+.task-container .buttons *{
+    padding: 5px 10px;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    cursor: pointer;
+    transition: all .2s ease;
+    box-shadow: 1px 1px 10px  1px #444;
+    position: relative;
+}
+
+.task-container .buttons *:hover{
+    transform: translate(-1px , -1px);
+    box-shadow: 3px 3px 10px  3px #444;
+}
+
+.task-container .buttons *::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: -1;
+    transition: all .13s linear;
+}
+
+.task-container .buttons *:hover::after{
+    width: 100%;
+}
+
+.task-container .buttons .complete::after{
+    background: rgba(0, 255, 0, 0.603);
+}
+
+.task-container .buttons .edit::after{
+    background: rgba(0, 119, 255, 0.637);
+}
+
+.task-container .buttons .delete::after{
+    background: rgba(224, 26, 26, 0.596);
+}
+
+.completed{
+    text-decoration: line-through;
+    background-color: #375c6d;
+}
+
+.complete button{
+    text-decoration: none;
+}
+
+.scale-0{
+    transform: scale(0);
+}
+
+.delete-task{
+    animation: delete .5s ease-in;
+}
+
+@keyframes delete{
+    from{
+        transform: translateX(0);
+    }to{
+        transform: translateX(2500px) scale(0);
+    }
+}
+
+.add{
+    color: rgba(255, 255, 255, 0.87);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 3px;
+    font-size: 2.5rem;
+    margin: 20px;
+    text-shadow: 2px 1px 5px black;
+    filter: blur(.6px);
+    font-weight: 600;
+}
+
+@media(max-width: 580px){
+    .add{
+        font-size: 1.9rem;
+    }
+}
+
+@media(max-width: 460px){
+    .add{
+        font-size: 1.2rem;
+    }
+}
